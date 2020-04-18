@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "license": "MIT",
+  "scripts": {
+    "deploy":  "prisma deploy",
+    "generate": "prisma generate",
+    "prisma": "yarn run deploy && yarn run generate"
+  },
   "dependencies": {
     "graphql-yoga": "^1.18.3"
   },
