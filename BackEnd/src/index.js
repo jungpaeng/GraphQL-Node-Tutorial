@@ -10,10 +10,11 @@ let idCount = links.length;
 const resolvers = {
   Query: {
     info: () => "This is the API of a Hackernews Clone",
+    link: (_, {id}) => links.filter(link => link.id === id)[0],
     feed: () => links,
   },
   Mutation: {
-    post: (parent, args) => {
+    post: (_, args) => {
       const link = {
         id: `link-${idCount++}`,
         description: args.description,
