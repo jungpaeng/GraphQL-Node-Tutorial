@@ -23,6 +23,28 @@ const resolvers = {
       links.push(link);
 
       return link;
+    },
+    updateLink: (_, {id, url, description}) => {
+      let updatedLink = null;
+      links = links.map(item => (
+        item.id === id ? updatedLink = {
+          id: item.id,
+          url: url || item.url,
+          description: description || item.description,
+        } : item
+      ));
+
+      return updatedLink;
+    },
+    deleteLink: (_, {id}) => {
+      let deletedLink = null;
+      links = links.filter(item => {
+        if (item.id === id) deletedLink = item;
+
+        return item.id !== id;
+      });
+
+      return deletedLink;
     }
   },
 }
