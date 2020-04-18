@@ -1,0 +1,10 @@
+type Link {
+  id: ID!
+  description: String!
+  url: String!
+}
+
+type Query {
+  info: String!
+  feed: [Link!]!
+}

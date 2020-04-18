@@ -6,19 +6,6 @@ let links = [{
   description: "Fullstack tutorial for GraphQL",
 }];
 
-const typeDefs = `
-  type Link {
-    id: ID!
-    description: String!
-    url: String!
-  }
-
-  type Query {
-    info: String!
-    feed: [Link!]!
-  }
-`;
-
 const resolvers = {
   Link: {
     id: parent => parent.id,
@@ -32,7 +19,7 @@ const resolvers = {
 }
 
 const server = new GraphQLServer({
-  typeDefs,
+  typeDefs: './src/schema.graphql',
   resolvers,
 });
 
