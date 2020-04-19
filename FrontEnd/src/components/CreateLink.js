@@ -1,10 +1,24 @@
 import React from 'react';
+import gql from 'graphql-tag';
+import {useMutation} from "@apollo/react-hooks";
+
+const POST_MUTATION = gql`
+  mutation PostMutation($description: String!, $url: String!) {
+    post(description: $description, url: $url) {
+      id
+      url
+      description
+    }
+  }
+`;
 
 const CreateLink = () => {
   const [{description, url}, setLink] = React.useState({
     description: '',
     url: '',
   });
+
+  const [createLink] = useMutation(POST_MUTATION);
 
   return (
     <div>
@@ -28,7 +42,7 @@ const CreateLink = () => {
           }}
         />
       </div>
-      <button onClick={() => null}>
+      <button onClick={() => createLink({variables: {description, url}})}>
         Submit
       </button>
     </div>
