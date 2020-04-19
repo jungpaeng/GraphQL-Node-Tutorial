@@ -38,9 +38,14 @@ type Subscription {
   newVote: Vote
 }
 
+type Feed {
+  links: [Link!]!
+  count: Int!
+}
+
 type Query {
   info: String!
-  feed(filter: String, skip: Int, first: Int, orderBy: LinkOrderByInput): [Link!]!
+  feed(filter: String, skip: Int, first: Int, orderBy: LinkOrderByInput): Feed!
 }
 
 type Mutation {
