@@ -17,6 +17,10 @@ type AuthPayload {
   user: User
 }
 
+type Subscription {
+  newLink: Link
+}
+
 type Query {
   info: String!
   feed: [Link!]!
