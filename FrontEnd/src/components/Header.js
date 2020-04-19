@@ -35,7 +35,7 @@ const Header = () => {
           </div>
         ) : (
           <Link to="/login" className="ml1 no-underline black">
-            new
+            login
           </Link>
         )}
       </div>
