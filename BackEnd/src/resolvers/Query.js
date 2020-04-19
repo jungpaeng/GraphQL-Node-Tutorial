@@ -10,6 +10,7 @@ const feed = (parent, args, context, info) => {
     where,
     skip: args.skip,
     first: args.first,
+    orderBy: args.orderBy,
   });
 };
 
