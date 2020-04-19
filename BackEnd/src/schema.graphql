@@ -26,6 +26,7 @@ type AuthPayload {
 
 type Subscription {
   newLink: Link
+  newVote: Vote
 }
 
 type Query {
