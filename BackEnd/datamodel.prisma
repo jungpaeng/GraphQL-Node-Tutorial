@@ -9,6 +9,6 @@ type User {
 type Link {
   id: ID! @id
   description: String!
-  uri: String!
+  url: String!
   postedBy: User
 }
