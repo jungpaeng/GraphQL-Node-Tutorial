@@ -1,8 +1,15 @@
+type Vote {
+  id: ID!
+  link: Link!
+  user: User!
+}
+
 type Link {
   id: ID!
   description: String!
   url: String!
   postedBy: User
+  votes: [Vote!]!
 }
 
 type User {
@@ -30,4 +37,5 @@ type Mutation {
   post(url: String!, description: String!): Link!
   signup(email: String!, password: String!, name: String!): AuthPayload
   login(email: String!, password: String!): AuthPayload
+  vote(linkId: ID!): Vote
 }
