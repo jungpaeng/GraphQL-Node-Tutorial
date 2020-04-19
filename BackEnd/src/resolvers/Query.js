@@ -6,7 +6,11 @@ const feed = (parent, args, context, info) => {
     ],
   } : {};
 
-  return context.prisma.links({where});
+  return context.prisma.links({
+    where,
+    skip: args.skip,
+    first: args.first,
+  });
 };
 
 module.exports = {
